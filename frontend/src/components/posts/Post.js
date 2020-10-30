@@ -1,4 +1,5 @@
 import React from 'react'
+import { LinkContainer } from 'react-router-bootstrap'
 
 const Post = ({post}) => {
     return (
@@ -7,12 +8,14 @@ const Post = ({post}) => {
             <div className="card-body">
                 <h2 className="card-title">{post.title}</h2>
                 <p className="card-text">{post.body.slice(0,100)}...</p>
-                <a href="#!" className="btn btn-primary">Read More &rarr;</a>
+                <LinkContainer to={`/posts/${post.id}`}>
+                    <a href="#!" className="btn btn-primary">Read More &rarr;</a>
+                </LinkContainer>
             </div>
-            <div className="card-footer text-muted">
+            {/* <div className="card-footer text-muted">
                 Posted on {post.date} by{' '}
                 <a href="#!">{post.author}</a>
-            </div>
+            </div> */}
         </div>
     )
 }
