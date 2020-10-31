@@ -19,6 +19,42 @@
       "body": "Good work",
       "postId": "1",
       "id": 1
+    },
+    {
+      "name": "Kamrul Hasan",
+      "body": "Test comment",
+      "postId": "7",
+      "id": 2
+    },
+    {
+      "name": "Rafia Tabassum",
+      "body": "Test comment 2",
+      "postId": "7",
+      "id": 3
+    },
+    {
+      "name": "Hasib",
+      "body": "Test Comment 3",
+      "postId": "7",
+      "id": 4
+    },
+    {
+      "name": "Rafia Tasmin",
+      "body": "Last comment",
+      "postId": "7",
+      "id": 5
+    },
+    {
+      "name": "Amirah anjum",
+      "body": "Wrong Name",
+      "postId": "7",
+      "id": 6
+    },
+    {
+      "name": "Kamrul Hasan",
+      "body": "My name",
+      "postId": "3",
+      "id": 7
     }
   ],
   "admins": []
