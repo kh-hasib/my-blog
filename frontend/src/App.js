@@ -10,6 +10,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import ScrollToTop from './ScrollToTop';
 import Login from './components/Login';
+import PrivateRoute from './components/auth/PrivateRoute';
 
 
 const App = () => {
@@ -26,9 +27,9 @@ const App = () => {
             <Route exact path='/' component={Home} />
             <Route path='/about' component={About} />
             <Route path='/login' component={Login} />
-            <Route path='/posts/create' component={CreatePost} />
+            <PrivateRoute path='/posts/create' component={CreatePost} />
+            <PrivateRoute path='/admin/posts/:id/edit' component={PostUpdate} />
             <Route path='/posts/:id' component={PostDetail} />
-            <Route path='/admin/posts/:id/edit' component={PostUpdate} />
 
           </Switch>
         </Container>

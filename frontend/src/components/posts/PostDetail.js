@@ -32,6 +32,9 @@ const PostDetail = ({match, history, location}) => {
         comment: newComment
     } = commentCreate
 
+    const { authenticated} = useSelector(state => state.auth)
+
+
     const commentGet = useSelector(state => state.commentGet)
     const {comments} = commentGet
     //console.log(comments)
@@ -94,13 +97,16 @@ const PostDetail = ({match, history, location}) => {
             <p>Posted on January 1, 2019 at 12:00 PM </p>
 
             <div className="float-right py-3">
+                {authenticated && (
+                <>
                 <LinkContainer to={`/admin/posts/${post.id}/edit`}>
                     <a href="#!" className="btn btn-primary"><i className="fas fa-edit"></i></a> 
                 </LinkContainer>
-                {' '}
+                    {' '}
                 <Button variant="primary" onClick={() =>onDelete(post.id)} >
                     <i className="fas fa-trash-alt"></i>
-                </Button>
+                </Button> 
+                </>)}
 
             </div>
 
