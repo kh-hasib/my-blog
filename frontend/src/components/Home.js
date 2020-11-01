@@ -1,28 +1,33 @@
 import React, {useEffect} from 'react'
 import {useDispatch , useSelector} from 'react-redux'
 import {Row} from 'react-bootstrap';
-import PageNum from './pages/PageNum';
+import Paginate from './pages/Paginate';
 import Post from './posts/Post';
 import Sidebar from './Sidebar';
 // import posts from '../posts';
 import {listPosts} from '../actions/postActions'
+import Spinner from './layout/Spinner';
 
-const Home = () => {
+const Home = ({match}) => {
+    const keyword = match.params.keyword
+    const pageNumber = parseInt(match.params.pageNumber) || 1
+    
     const dispatch = useDispatch()
     const postList = useSelector(state => state.postList)
-    const {loading, posts} = postList
+    const {loading, posts, pages} = postList
     useEffect(() =>{
-        dispatch(listPosts());
-    },[dispatch]);
+        dispatch(listPosts(keyword, pageNumber));
+    },[dispatch, keyword, pageNumber]);
     return (
             <Row>
+            
             <div className="col-md-8">
-                <h1 className="my-4">All Posts{' '}
-                {/* <small>Secondary Text</small> */}
-                </h1>
-                {posts.map(post => (<Post key={post.id} post={post} />)).reverse()}
-                <PageNum />
-            </div>
+                <h1 className="my-4">All Posts</h1>
+                {loading ? <Spinner /> : (
+                   <> {posts.map(post => (<Post key={post.id} post={post} />))}
+                    <Paginate pages={pages} pageNum={pageNumber} keyword={keyword}/> </>
+                )}
+            </div> 
             <Sidebar />
             </Row>
 

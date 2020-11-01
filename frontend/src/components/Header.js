@@ -1,9 +1,37 @@
 import React from 'react'
-// import {Link} from 'react-router-dom';
+import {useSelector, useDispatch} from 'react-redux';
 import { Navbar, Nav, Container } from 'react-bootstrap';
 import {LinkContainer} from 'react-router-bootstrap';
+import { LOGOUT } from '../constants/authConstants';
+import { Redirect } from 'react-router-dom';
+
 
 const Header = () => {
+    const dispatch = useDispatch()
+    const authInfo = useSelector(state => state.auth)
+    const {authenticated} = authInfo
+    
+    const onLogout = () => {
+        dispatch({type : LOGOUT});
+        <Redirect to='/' />
+    }
+
+    const authLinks = (
+        <>
+        <LinkContainer to='/posts/create'>
+            <Nav.Link ><i className="fas fa-pen-square"></i> Create Post</Nav.Link>
+        </LinkContainer>
+        <Nav.Link onClick={onLogout}><i className="fas fa-sign-out-alt"></i> Logout</Nav.Link>
+        </>
+    )
+    
+    const guestLinks = (
+        <>
+            <LinkContainer to='/login'>
+                <Nav.Link ><i className="fas fa-user"></i> Login</Nav.Link>
+            </LinkContainer>
+        </>
+    )
     return (
         <header>
            <Navbar collapseOnSelect expand="lg" bg="primary" variant="dark">
@@ -17,14 +45,7 @@ const Header = () => {
                             <LinkContainer to='/about'>
                                 <Nav.Link><i className="fas fa-info-circle"></i> About Me</Nav.Link>
                             </LinkContainer>
-                            <LinkContainer to='/posts/create'>
-                                <Nav.Link ><i className="fas fa-pen-square"></i> Create Post</Nav.Link>
-                            </LinkContainer>
-
-                            {/* <Nav.Link as={Link} to='/' > <i className="fas fa-home"></i> Home</Nav.Link>
-                            <Nav.Link as={Link} to='/about' ><i className="fas fa-user"></i> About</Nav.Link>
-                            <Nav.Link as={Link} to='/login' ><i className="fas fa-user"></i> Login</Nav.Link> */}
-
+                            {authenticated ? authLinks : guestLinks}
                         </Nav>
                     </Navbar.Collapse>
                 </Container>

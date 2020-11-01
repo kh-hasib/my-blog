@@ -8,6 +8,7 @@ import { POST_DELETE_RESET } from '../../constants/postConstants';
 import { createComment, getComments } from '../../actions/commentActions';
 import { COMMENT_CREATE_RESET } from '../../constants/commentConstants';
 import Comment from '../comments/Comment';
+import Spinner from '../layout/Spinner';
 
 const PostDetail = ({match, history, location}) => {
     const [name, setName] = useState('');
@@ -42,10 +43,12 @@ const PostDetail = ({match, history, location}) => {
         } else if (commentCreateSuccess){
             dispatch({type: COMMENT_CREATE_RESET})
             comments.push(newComment)
+           
         } else{
             console.log(history.location)
             dispatch(postDetails(postId))
-        }       
+        }     
+        // eslint-disable-next-line  
     },[dispatch, history, successDelete, postId, commentCreateSuccess]);
 
     useEffect(() => {
@@ -70,15 +73,19 @@ const PostDetail = ({match, history, location}) => {
     }
     return (
         <Row>
+            
             <div className="col-lg-8">
-
+            
+            {loadingDelete && <Spinner />}
+            {loading ? <Spinner /> : (
+            <>
             {/*  Title  */}
             <h1 className="mt-4">{post.title}</h1>
 
             {/*  Author  */}
             <p className="lead">
             by
-            <a href="#!"> Start Bootstrap</a>
+            <a href="#!"> {post.author}</a>
             </p>
 
             <hr />
@@ -139,7 +146,7 @@ const PostDetail = ({match, history, location}) => {
             {comments.map(cmnt => (
                 <Comment key={cmnt.id} cmnt={cmnt} />
             ))}
-           
+           </> )}
             </div>
             <Sidebar />
         </Row>

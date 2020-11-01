@@ -28,9 +28,11 @@ export const postListReducer = (state={ posts: [] }, action) => {
                 posts: []
             }
         case GET_POST:
+            const pages = parseInt(action.payload.headers.link.substr(-44,1))
             return {
                 loading: false,
-                posts: action.payload,
+                posts: action.payload.data,
+                pages: pages
             }
         case POST_FAIL:
             return {

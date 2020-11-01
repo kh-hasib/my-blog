@@ -3,6 +3,7 @@ import {Col, Form, Row, Button} from 'react-bootstrap';
 import {useSelector, useDispatch} from 'react-redux';
 import {updatePost, postDetails} from '../../actions/postActions';
 import { POST_UPDATE_RESET } from '../../constants/postConstants';
+import Spinner from '../layout/Spinner';
 
 const PostUpdate = ({match, history}) => {
     const postId = parseInt(match.params.id)
@@ -55,6 +56,9 @@ const PostUpdate = ({match, history}) => {
     return (
         <Row>
             <Col md={8} className='py-3 mx-auto'>
+                {loadingUpdate && <Spinner />}
+                {loading ? <Spinner /> : (
+                <>
                 <h3>Update Post</h3>
                 <hr />
                 <Form onSubmit={onSubmit}>
@@ -88,6 +92,7 @@ const PostUpdate = ({match, history}) => {
                         Update
                     </Button>
                 </Form>
+                </> )}
             </Col>
         </Row>
             

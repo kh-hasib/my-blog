@@ -19,13 +19,15 @@ import {
 } from '../constants/postConstants';
 
 
-export const listPosts = () => async (dispatch) => {
+export const listPosts = (keyword='', pageNumber=1) => async (dispatch) => {
     try {
         dispatch({ type : POST_REQUEST})
-        const {data} = await axios.get('/posts')
+        console.log(keyword)
+        const res = await axios.get(`/posts?q=${keyword}&_page=${pageNumber}&_limit=2&_sort=id&_order=desc`)
+    
         dispatch({
             type: GET_POST,
-            payload: data
+            payload: res
         })
     } catch (error) {
         dispatch({
@@ -103,3 +105,6 @@ export const deletePost = (id) => async (dispatch) => {
         })
     }
 }
+
+
+

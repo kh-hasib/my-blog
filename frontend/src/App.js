@@ -9,6 +9,7 @@ import PostDetail from './components/posts/PostDetail';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import ScrollToTop from './ScrollToTop';
+import Login from './components/Login';
 
 
 const App = () => {
@@ -19,8 +20,12 @@ const App = () => {
       <main>
         <Container className='py-3' >
           <Switch>
+            <Route exact path='/search/:keyword' component={Home} />
+            <Route exact path='/search/:keyword/page/:pageNumber' component={Home} exact/>
+            <Route exact path='/page/:pageNumber' component={Home} exact/>
             <Route exact path='/' component={Home} />
             <Route path='/about' component={About} />
+            <Route path='/login' component={Login} />
             <Route path='/posts/create' component={CreatePost} />
             <Route path='/posts/:id' component={PostDetail} />
             <Route path='/admin/posts/:id/edit' component={PostUpdate} />

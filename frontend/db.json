@@ -8,9 +8,15 @@
     },
     {
       "id": 7,
-      "title": "My First Blog",
+      "title": "My First Blog updated tite 2nd",
       "author": "Kamrul Hasan",
-      "body": "Creating a blog with react js.  I have done it"
+      "body": "Creating a blog with react js.  I have done it with comment"
+    },
+    {
+      "id": 8,
+      "title": "My Second Blog ",
+      "author": "Kamrul Hasan",
+      "body": "Creating 2nd blog post with react js.  I have done it with comment"
     }
   ],
   "comments": [
