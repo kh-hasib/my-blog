@@ -1,5 +1,5 @@
 # My Blog
-Personal blog share your thoughts and opinion
+Personal blog for sharing thoughts and stories.
 
 ## Usage
 ### `npm install`
