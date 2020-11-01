@@ -1,15 +1,15 @@
 import React from 'react';
 import { Container } from 'react-bootstrap';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
-import Home from './components/Home';
-import About from './components/About';
+import Home from './components/pages/Home';
+import About from './components/pages/About';
 import PostUpdate from './components/posts/PostUpdate';
 import CreatePost from './components/posts/CreatePost';
 import PostDetail from './components/posts/PostDetail';
-import Header from './components/Header';
-import Footer from './components/Footer';
+import Header from './components/layout/Header';
+import Footer from './components/layout/Footer';
 import ScrollToTop from './ScrollToTop';
-import Login from './components/Login';
+import Login from './components/auth/Login';
 import PrivateRoute from './components/auth/PrivateRoute';
 
 

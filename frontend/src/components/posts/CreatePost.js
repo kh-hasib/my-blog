@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import {Col, Form, Row, Button} from 'react-bootstrap';
 import {useSelector, useDispatch} from 'react-redux';
-import Sidebar from '../Sidebar';
+import Sidebar from '../layout/Sidebar';
 import {createPost} from '../../actions/postActions';
 import { POST_CREATE_RESET } from '../../constants/postConstants';
 

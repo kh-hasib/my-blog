@@ -12,10 +12,10 @@ const Post = ({post}) => {
                     <a href="#!" className="btn btn-primary">Read More &rarr;</a>
                 </LinkContainer>
             </div>
-            {/* <div className="card-footer text-muted">
-                Posted on {post.date} by{' '}
+            <div className="card-footer text-muted">
+                Posted by{' '}
                 <a href="#!">{post.author}</a>
-            </div> */}
+            </div>
         </div>
     )
 }

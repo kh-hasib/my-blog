@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import {useDispatch , useSelector} from 'react-redux';
 import { Row, Button } from 'react-bootstrap'
-import Sidebar from '../Sidebar'
+import Sidebar from '../layout/Sidebar'
 import {postDetails, deletePost} from '../../actions/postActions'
 import { LinkContainer } from 'react-router-bootstrap';
 import { POST_DELETE_RESET } from '../../constants/postConstants';

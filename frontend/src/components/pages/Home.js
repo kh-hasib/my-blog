@@ -1,12 +1,12 @@
 import React, {useEffect} from 'react'
 import {useDispatch , useSelector} from 'react-redux'
 import {Row} from 'react-bootstrap';
-import Paginate from './pages/Paginate';
-import Post from './posts/Post';
-import Sidebar from './Sidebar';
+import Paginate from './Paginate';
+import Post from '../posts/Post';
+import Sidebar from '../layout/Sidebar';
 // import posts from '../posts';
-import {listPosts} from '../actions/postActions'
-import Spinner from './layout/Spinner';
+import {listPosts} from '../../actions/postActions'
+import Spinner from '../layout/Spinner';
 
 const Home = ({match}) => {
     const keyword = match.params.keyword

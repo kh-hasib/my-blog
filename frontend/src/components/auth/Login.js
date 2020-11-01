@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import {useDispatch,useSelector} from 'react-redux'
 import { Col, Row, Form, Button } from 'react-bootstrap'
-import {loginAdmin} from '../actions/authActions';
+import {loginAdmin} from '../../actions/authActions'
 // import { Redirect } from 'react-router-dom';
 
 const Login = ({history}) => {

@@ -1,6 +1,6 @@
 import React from 'react'
 import {Route} from 'react-router-dom';
-import SearchBox from './layout/SearchBox';
+import SearchBox from './SearchBox';
 
 const Sidebar = () => {
     return (
